@@ -34,7 +34,7 @@ export default function Home() {
         </div>
       ) : (
         <div className="banner banner-welcome">
-          <h2>{'স্বাগতম ' + (settings && settings.shopName ? settings.shopName : 'আস্থা পল্লী বাজার') + 'ে'}</h2>
+          <h2>{'স্বাগতম ' + (settings && settings.shopName ? settings.shopName : 'Astha Palli Bazar') + 'ে'}</h2>
           <p>সেরা মানের পণ্য, ঘরে পৌঁছে দেব</p>
         </div>
       )}
@@ -42,7 +42,7 @@ export default function Home() {
       {todaysOffers.length > 0 && (
         <section className="section">
           <div className="section-head">
-            <h2>🔥 আজকের অফার</h2>
+            <h2>🔥 Today Offers</h2>
           </div>
           <div className="h-scroll">
             {todaysOffers.map((p) => <ProductCard key={p.id} product={p} />)}
@@ -51,9 +51,9 @@ export default function Home() {
       )}
 
       <section className="section">
-        <div className="section-head"><h2>ক্যাটাগরি</h2></div>
+        <div className="section-head"><h2>Categories</h2></div>
         <div className="cat-scroll">
-          {categories.length === 0 && <p className="muted">কোনো ক্যাটাগরি নেই</p>}
+          {categories.length === 0 && <p className="muted">কোনো Categories নেই</p>}
           {categories.filter((c) => c.enabled !== false).map((c) => (
             <Link key={c.id} to={'/category/' + c.id} className="cat-chip">
               {c.imageUrl ? <img src={c.imageUrl} alt="" className="cat-chip-img" /> : <span className="cat-chip-emoji">🛍️</span>}
@@ -65,7 +65,7 @@ export default function Home() {
 
       {featured.length > 0 && (
         <section className="section">
-          <div className="section-head"><h2>⭐ ফিচার্ড</h2></div>
+          <div className="section-head"><h2>⭐ Featured</h2></div>
           <div className="grid-products">
             {featured.map((p) => <ProductCard key={p.id} product={p} />)}
           </div>
@@ -73,12 +73,50 @@ export default function Home() {
       )}
 
       <section className="section">
-        <div className="section-head"><h2>সব পণ্য</h2></div>
+        <div className="section-head"><h2>All Products</h2></div>
         <div className="grid-products">
-          {products.length === 0 && <p className="muted">কোনো পণ্য নেই</p>}
+          {products.length === 0 && <p className="muted">No products</p>}
           {products.filter((p) => p.enabled !== false).map((p) => <ProductCard key={p.id} product={p} />)}
         </div>
       </section>
     </div>
   );
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

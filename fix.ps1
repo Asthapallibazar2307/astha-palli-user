@@ -1,0 +1,66 @@
+$repl = @{}
+$repl['আস্থা পল্লী বাজার'] = 'Astha Palli Bazar'
+$repl['সেরা মানের পণ্য'] = 'Best quality products'
+$repl['ক্যাটাগরি'] = 'Categories'
+$repl['কোনো ক্যাটাগরি নেই'] = 'No categories'
+$repl['সব পণ্য'] = 'All Products'
+$repl['কোনো পণ্য নেই'] = 'No products'
+$repl['আজকের অফার'] = 'Today Offers'
+$repl['ফিচার্ড'] = 'Featured'
+$repl['স্টক নেই'] = 'Out of Stock'
+$repl['কার্টে যোগ করুন'] = 'Add to Cart'
+$repl['যুক্ত হয়েছে'] = 'Added'
+$repl['এখনই কিনুন'] = 'Buy Now'
+$repl['কার্ট'] = 'Cart'
+$repl['আপনার কার্ট খালি'] = 'Your cart is empty'
+$repl['কেনাকাটা শুরু করুন'] = 'Start Shopping'
+$repl['সাবটোটাল'] = 'Subtotal'
+$repl['চেকআউট করুন'] = 'Checkout'
+$repl['কার্ট খালি করুন'] = 'Clear Cart'
+$repl['ডেলিভারি তথ্য'] = 'Delivery Info'
+$repl['অর্ডার সারসংক্ষেপ'] = 'Order Summary'
+$repl['পেমেন্ট'] = 'Payment'
+$repl['ক্যাশ অন ডেলিভারি'] = 'Cash on Delivery'
+$repl['অর্ডার করুন'] = 'Place Order'
+$repl['নাম'] = 'Name'
+$repl['মোবাইল'] = 'Mobile'
+$repl['ঠিকানা'] = 'Address'
+$repl['আমার অর্ডার'] = 'My Orders'
+$repl['এখনো কোনো অর্ডার নেই'] = 'No orders yet'
+$repl['লগইন করুন'] = 'Login'
+$repl['ট্র্যাকিং'] = 'Tracking'
+$repl['সারসংক্ষেপ'] = 'Summary'
+$repl['ডেলিভারি চার্জ'] = 'Delivery Charge'
+$repl['মোট'] = 'Total'
+$repl['দোকানে কল'] = 'Call Shop'
+$repl['একাউন্ট'] = 'Account'
+$repl['অতিথি'] = 'Guest'
+$repl['লগইন'] = 'Login'
+$repl['রেজিস্টার'] = 'Register'
+$repl['App তথ্য'] = 'App Info'
+$repl['প্রোফাইল সম্পাদনা'] = 'Edit Profile'
+$repl['লগআউট'] = 'Logout'
+$repl['সেভ'] = 'Save'
+$repl['বাতিল'] = 'Cancel'
+$repl['নতুন অ্যাকাউন্ট'] = 'New Account'
+$repl['ইমেইল'] = 'Email'
+$repl['পাসওয়ার্ড'] = 'Password'
+$repl['দোকান তথ্য'] = 'Shop Info'
+$repl['যোগাযোগ'] = 'Contact'
+$repl['ফোন'] = 'Phone'
+$repl['বিবরণ'] = 'Description'
+$repl['কল করুন'] = 'Call'
+$repl['সার্চ'] = 'Search'
+$repl['পণ্য খুঁজুন'] = 'Search products'
+$repl['সব দেখুন'] = 'See All'
+
+$files = Get-ChildItem -Path src -Recurse -Include *.jsx,*.js
+foreach ($f in $files) {
+  $c = Get-Content $f.FullName -Raw -Encoding UTF8
+  foreach ($k in $repl.Keys) {
+    $c = $c.Replace($k, $repl[$k])
+  }
+  Set-Content -Path $f.FullName -Value $c -NoNewline -Encoding UTF8
+  Write-Host "Updated:" $f.Name
+}
+Write-Host "Done!"
